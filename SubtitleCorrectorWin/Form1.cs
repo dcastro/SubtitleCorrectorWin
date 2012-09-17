@@ -12,6 +12,11 @@ namespace SubtitleCorrectorWin
 {
     public partial class Form1 : Form
     {
+
+        int seconds;
+        int milliseconds;
+        string filename;
+
         public Form1()
         {
             InitializeComponent();
@@ -28,8 +33,20 @@ namespace SubtitleCorrectorWin
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 filenameLabel.Text = openFileDialog.FileName;
+                this.filename = openFileDialog.FileName;
             }
         }
+
+        private void secondsInput_ValueChanged(object sender, EventArgs e)
+        {
+            this.seconds = (int) secondsInput.Value;
+        }
+
+        private void millisecondsInput_ValueChanged(object sender, EventArgs e)
+        {
+            this.milliseconds = (int)millisecondsInput.Value;
+        }
+
 
 
 

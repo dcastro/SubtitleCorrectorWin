@@ -69,13 +69,25 @@
             this.secondsInput.Name = "secondsInput";
             this.secondsInput.Size = new System.Drawing.Size(82, 20);
             this.secondsInput.TabIndex = 2;
+            this.secondsInput.ValueChanged += new System.EventHandler(this.secondsInput_ValueChanged);
             // 
             // millisecondsInput
             // 
+            this.millisecondsInput.Increment = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             this.millisecondsInput.Location = new System.Drawing.Point(240, 139);
+            this.millisecondsInput.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
             this.millisecondsInput.Name = "millisecondsInput";
             this.millisecondsInput.Size = new System.Drawing.Size(82, 20);
             this.millisecondsInput.TabIndex = 3;
+            this.millisecondsInput.ValueChanged += new System.EventHandler(this.millisecondsInput_ValueChanged);
             // 
             // secondsLabel
             // 
