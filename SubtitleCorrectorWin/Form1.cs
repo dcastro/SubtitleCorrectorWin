@@ -49,8 +49,12 @@ namespace SubtitleCorrectorWin
 
         private async void correctButton_Click(object sender, EventArgs e)
         {
+            correctButton.Enabled = false;
+
             Corrector corrector = new Corrector(seconds, milliseconds, filename);
             await corrector.correctAsync();
+
+            correctButton.Enabled = true;
         }
 
 
