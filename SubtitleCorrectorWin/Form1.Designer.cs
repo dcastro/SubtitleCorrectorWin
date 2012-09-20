@@ -35,6 +35,7 @@
             this.millisecondsInput = new System.Windows.Forms.NumericUpDown();
             this.secondsLabel = new System.Windows.Forms.Label();
             this.millisecondsLabel = new System.Windows.Forms.Label();
+            this.correctButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.secondsInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.millisecondsInput)).BeginInit();
             this.SuspendLayout();
@@ -107,11 +108,22 @@
             this.millisecondsLabel.TabIndex = 5;
             this.millisecondsLabel.Text = "Milliseconds";
             // 
+            // correctButton
+            // 
+            this.correctButton.Location = new System.Drawing.Point(181, 214);
+            this.correctButton.Name = "correctButton";
+            this.correctButton.Size = new System.Drawing.Size(75, 23);
+            this.correctButton.TabIndex = 6;
+            this.correctButton.Text = "Correct";
+            this.correctButton.UseVisualStyleBackColor = true;
+            this.correctButton.Click += new System.EventHandler(this.correctButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(476, 282);
+            this.Controls.Add(this.correctButton);
             this.Controls.Add(this.millisecondsLabel);
             this.Controls.Add(this.secondsLabel);
             this.Controls.Add(this.millisecondsInput);
@@ -137,6 +149,7 @@
         private System.Windows.Forms.NumericUpDown millisecondsInput;
         private System.Windows.Forms.Label secondsLabel;
         private System.Windows.Forms.Label millisecondsLabel;
+        private System.Windows.Forms.Button correctButton;
     }
 }
 

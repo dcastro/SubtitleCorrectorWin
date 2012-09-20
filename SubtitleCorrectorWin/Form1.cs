@@ -47,6 +47,22 @@ namespace SubtitleCorrectorWin
             this.milliseconds = (int)millisecondsInput.Value;
         }
 
+        private async void correctButton_Click(object sender, EventArgs e)
+        {
+            await correct();
+            
+        }
+
+        public Task correct()
+        {
+            return Task.Run(() =>
+            {
+
+            });
+        }
+
+
+
 
 
 
