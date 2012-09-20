@@ -20,6 +20,12 @@ namespace SubtitleCorrectorWin
             this.milliseconds = milliseconds + (seconds * 1000);
             this.filename = filename;
             this.move = move;
+
+            if (this.move == MoveAction.Backward)
+                this.milliseconds = - this.milliseconds;
+
+            Console.WriteLine(move);
+            Console.WriteLine(this.milliseconds);
         }
 
 
@@ -27,17 +33,29 @@ namespace SubtitleCorrectorWin
             return Task.Run( () => {
 
                 List<string> lines = readFile();
+                List<string> correctedLines = new List<string>();
                 string start = "", end = "";
 
                 foreach (string line in lines)
                 {
+                    string correctedLine;
+
                     if (isTimestamp(line, ref start, ref end))
                     {
+                        // correct timestamp
                         DateTime startDate = DateTime.ParseExact(start, format, null);
                         DateTime endDate = DateTime.ParseExact(end, format, null);
 
-                        //Console.WriteLine("date: " + startDate + " " + endDate + " " + move);
+                        startDate = startDate.AddMilliseconds(milliseconds);
+                        endDate = endDate.AddMilliseconds(milliseconds);
+
+                        correctedLine = startDate.ToString(format) + " --> " + endDate.ToString(format);
+
                     }
+                    else
+                        correctedLine = line;
+
+                    correctedLines.Add(correctedLine);
                 }
 
             });
