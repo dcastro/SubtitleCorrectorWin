@@ -49,22 +49,9 @@ namespace SubtitleCorrectorWin
 
         private async void correctButton_Click(object sender, EventArgs e)
         {
-            await correct();
-            
+            Corrector corrector = new Corrector(seconds, milliseconds, filename);
+            await corrector.correctAsync();
         }
-
-        public Task correct()
-        {
-            return Task.Run(() =>
-            {
-
-            });
-        }
-
-
-
-
-
 
 
     }
