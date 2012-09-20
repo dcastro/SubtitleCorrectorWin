@@ -36,8 +36,12 @@
             this.secondsLabel = new System.Windows.Forms.Label();
             this.millisecondsLabel = new System.Windows.Forms.Label();
             this.correctButton = new System.Windows.Forms.Button();
+            this.moveForwardRadio = new System.Windows.Forms.RadioButton();
+            this.moveBackwardRadio = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.secondsInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.millisecondsInput)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileDialog
@@ -66,7 +70,7 @@
             // 
             // secondsInput
             // 
-            this.secondsInput.Location = new System.Drawing.Point(118, 139);
+            this.secondsInput.Location = new System.Drawing.Point(217, 146);
             this.secondsInput.Name = "secondsInput";
             this.secondsInput.Size = new System.Drawing.Size(82, 20);
             this.secondsInput.TabIndex = 2;
@@ -79,7 +83,7 @@
             0,
             0,
             0});
-            this.millisecondsInput.Location = new System.Drawing.Point(240, 139);
+            this.millisecondsInput.Location = new System.Drawing.Point(339, 146);
             this.millisecondsInput.Maximum = new decimal(new int[] {
             999,
             0,
@@ -93,7 +97,7 @@
             // secondsLabel
             // 
             this.secondsLabel.AutoSize = true;
-            this.secondsLabel.Location = new System.Drawing.Point(115, 108);
+            this.secondsLabel.Location = new System.Drawing.Point(214, 115);
             this.secondsLabel.Name = "secondsLabel";
             this.secondsLabel.Size = new System.Drawing.Size(49, 13);
             this.secondsLabel.TabIndex = 4;
@@ -102,7 +106,7 @@
             // millisecondsLabel
             // 
             this.millisecondsLabel.AutoSize = true;
-            this.millisecondsLabel.Location = new System.Drawing.Point(237, 108);
+            this.millisecondsLabel.Location = new System.Drawing.Point(336, 115);
             this.millisecondsLabel.Name = "millisecondsLabel";
             this.millisecondsLabel.Size = new System.Drawing.Size(64, 13);
             this.millisecondsLabel.TabIndex = 5;
@@ -110,7 +114,7 @@
             // 
             // correctButton
             // 
-            this.correctButton.Location = new System.Drawing.Point(181, 214);
+            this.correctButton.Location = new System.Drawing.Point(188, 237);
             this.correctButton.Name = "correctButton";
             this.correctButton.Size = new System.Drawing.Size(75, 23);
             this.correctButton.TabIndex = 6;
@@ -118,11 +122,47 @@
             this.correctButton.UseVisualStyleBackColor = true;
             this.correctButton.Click += new System.EventHandler(this.correctButton_Click);
             // 
+            // moveForwardRadio
+            // 
+            this.moveForwardRadio.AutoSize = true;
+            this.moveForwardRadio.Checked = true;
+            this.moveForwardRadio.Location = new System.Drawing.Point(21, 27);
+            this.moveForwardRadio.Name = "moveForwardRadio";
+            this.moveForwardRadio.Size = new System.Drawing.Size(78, 17);
+            this.moveForwardRadio.TabIndex = 7;
+            this.moveForwardRadio.TabStop = true;
+            this.moveForwardRadio.Text = "Forward >>";
+            this.moveForwardRadio.UseVisualStyleBackColor = true;
+            this.moveForwardRadio.CheckedChanged += new System.EventHandler(this.moveForwardRadio_CheckedChanged);
+            // 
+            // moveBackwardRadio
+            // 
+            this.moveBackwardRadio.AutoSize = true;
+            this.moveBackwardRadio.Location = new System.Drawing.Point(21, 50);
+            this.moveBackwardRadio.Name = "moveBackwardRadio";
+            this.moveBackwardRadio.Size = new System.Drawing.Size(88, 17);
+            this.moveBackwardRadio.TabIndex = 8;
+            this.moveBackwardRadio.Text = "<< Backward";
+            this.moveBackwardRadio.UseVisualStyleBackColor = true;
+            this.moveBackwardRadio.CheckedChanged += new System.EventHandler(this.moveBackwardRadio_CheckedChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.moveForwardRadio);
+            this.groupBox1.Controls.Add(this.moveBackwardRadio);
+            this.groupBox1.Location = new System.Drawing.Point(35, 115);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(152, 84);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Move";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(476, 282);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.correctButton);
             this.Controls.Add(this.millisecondsLabel);
             this.Controls.Add(this.secondsLabel);
@@ -135,6 +175,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.secondsInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.millisecondsInput)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,6 +192,9 @@
         private System.Windows.Forms.Label secondsLabel;
         private System.Windows.Forms.Label millisecondsLabel;
         private System.Windows.Forms.Button correctButton;
+        private System.Windows.Forms.RadioButton moveForwardRadio;
+        private System.Windows.Forms.RadioButton moveBackwardRadio;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 

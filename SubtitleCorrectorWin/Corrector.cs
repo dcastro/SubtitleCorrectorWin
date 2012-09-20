@@ -13,11 +13,13 @@ namespace SubtitleCorrectorWin
         int milliseconds;
         string filename;
         const string format = "HH:mm:ss,fff";
+        MoveAction move;
 
-        public Corrector(int seconds, int milliseconds, string filename)
+        public Corrector(int seconds, int milliseconds, string filename, MoveAction move)
         {
             this.milliseconds = milliseconds + (seconds * 1000);
             this.filename = filename;
+            this.move = move;
         }
 
 
@@ -34,7 +36,7 @@ namespace SubtitleCorrectorWin
                         DateTime startDate = DateTime.ParseExact(start, format, null);
                         DateTime endDate = DateTime.ParseExact(end, format, null);
 
-                        //Console.WriteLine("date: " + startDate);
+                        //Console.WriteLine("date: " + startDate + " " + endDate + " " + move);
                     }
                 }
 

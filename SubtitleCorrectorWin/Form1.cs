@@ -16,6 +16,7 @@ namespace SubtitleCorrectorWin
         int seconds;
         int milliseconds;
         string filename;
+        MoveAction move;
 
         public Form1()
         {
@@ -26,6 +27,7 @@ namespace SubtitleCorrectorWin
         {
             filenameLabel.MaximumSize = new Size(300, 0);
             filenameLabel.AutoSize = true;
+            move = MoveAction.Forward;
         }
 
         private void selectFileButton_Click(object sender, EventArgs e)
@@ -51,12 +53,29 @@ namespace SubtitleCorrectorWin
         {
             correctButton.Enabled = false;
 
-            Corrector corrector = new Corrector(seconds, milliseconds, filename);
+            Corrector corrector = new Corrector(seconds, milliseconds, filename, move);
             await corrector.correctAsync();
 
             correctButton.Enabled = true;
         }
 
+        private void moveForwardRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (moveForwardRadio.Checked)
+            {
+                move = MoveAction.Forward;
+            }
+        }
+
+        private void moveBackwardRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (moveBackwardRadio.Checked)
+            {
+                move = MoveAction.Backward;
+            }
+        }
 
     }
+
+    enum MoveAction { Forward, Backward };
 }
