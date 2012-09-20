@@ -10,13 +10,13 @@ namespace SubtitleCorrectorWin
 {
     class Corrector
     {
-        int seconds, milliseconds;
-        String filename;
+        int milliseconds;
+        string filename;
+        const string format = "HH:mm:ss,fff";
 
-        public Corrector(int seconds, int milliseconds, String filename)
+        public Corrector(int seconds, int milliseconds, string filename)
         {
-            this.seconds = seconds;
-            this.milliseconds = milliseconds;
+            this.milliseconds = milliseconds + (seconds * 1000);
             this.filename = filename;
         }
 
@@ -31,7 +31,10 @@ namespace SubtitleCorrectorWin
                 {
                     if (isTimestamp(line, ref start, ref end))
                     {
-                        //Console.WriteLine("captured " + start + "  <>  " + end);
+                        DateTime startDate = DateTime.ParseExact(start, format, null);
+                        DateTime endDate = DateTime.ParseExact(end, format, null);
+
+                        //Console.WriteLine("date: " + startDate);
                     }
                 }
 
