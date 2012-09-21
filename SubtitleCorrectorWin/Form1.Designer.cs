@@ -30,7 +30,6 @@
         {
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.selectFileButton = new System.Windows.Forms.Button();
-            this.filenameLabel = new System.Windows.Forms.Label();
             this.secondsInput = new System.Windows.Forms.NumericUpDown();
             this.millisecondsInput = new System.Windows.Forms.NumericUpDown();
             this.secondsLabel = new System.Windows.Forms.Label();
@@ -39,6 +38,7 @@
             this.moveForwardRadio = new System.Windows.Forms.RadioButton();
             this.moveBackwardRadio = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.filenameTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.secondsInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.millisecondsInput)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -58,15 +58,6 @@
             this.selectFileButton.Text = "Select file";
             this.selectFileButton.UseVisualStyleBackColor = true;
             this.selectFileButton.Click += new System.EventHandler(this.selectFileButton_Click);
-            // 
-            // filenameLabel
-            // 
-            this.filenameLabel.AutoSize = true;
-            this.filenameLabel.Location = new System.Drawing.Point(148, 43);
-            this.filenameLabel.Name = "filenameLabel";
-            this.filenameLabel.Size = new System.Drawing.Size(95, 13);
-            this.filenameLabel.TabIndex = 1;
-            this.filenameLabel.Text = "Please select a file";
             // 
             // secondsInput
             // 
@@ -157,18 +148,27 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Move";
             // 
+            // filenameTextBox
+            // 
+            this.filenameTextBox.Enabled = false;
+            this.filenameTextBox.Location = new System.Drawing.Point(143, 38);
+            this.filenameTextBox.Name = "filenameTextBox";
+            this.filenameTextBox.Size = new System.Drawing.Size(284, 20);
+            this.filenameTextBox.TabIndex = 10;
+            this.filenameTextBox.Text = "Please select a file";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(476, 282);
+            this.Controls.Add(this.filenameTextBox);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.correctButton);
             this.Controls.Add(this.millisecondsLabel);
             this.Controls.Add(this.secondsLabel);
             this.Controls.Add(this.millisecondsInput);
             this.Controls.Add(this.secondsInput);
-            this.Controls.Add(this.filenameLabel);
             this.Controls.Add(this.selectFileButton);
             this.Name = "Form1";
             this.Text = "Subtitle Corrector";
@@ -186,7 +186,6 @@
 
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Button selectFileButton;
-        private System.Windows.Forms.Label filenameLabel;
         private System.Windows.Forms.NumericUpDown secondsInput;
         private System.Windows.Forms.NumericUpDown millisecondsInput;
         private System.Windows.Forms.Label secondsLabel;
@@ -195,6 +194,7 @@
         private System.Windows.Forms.RadioButton moveForwardRadio;
         private System.Windows.Forms.RadioButton moveBackwardRadio;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox filenameTextBox;
     }
 }
 

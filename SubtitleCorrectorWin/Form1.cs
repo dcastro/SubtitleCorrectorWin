@@ -25,8 +25,6 @@ namespace SubtitleCorrectorWin
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            filenameLabel.MaximumSize = new Size(300, 0);
-            filenameLabel.AutoSize = true;
             move = MoveAction.Forward;
         }
 
@@ -34,7 +32,7 @@ namespace SubtitleCorrectorWin
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                filenameLabel.Text = openFileDialog.FileName;
+                filenameTextBox.Text = openFileDialog.FileName;
                 this.filename = openFileDialog.FileName;
             }
         }
