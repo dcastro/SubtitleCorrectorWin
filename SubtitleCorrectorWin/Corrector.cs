@@ -34,6 +34,7 @@ namespace SubtitleCorrectorWin
 
                 List<string> lines = readFile();
                 List<string> correctedLines = new List<string>();
+                DateTime baseTimestamp = DateTime.ParseExact("00:00:00,000", format, null);
                 string start = "", end = "";
 
                 foreach (string line in lines)
@@ -48,6 +49,11 @@ namespace SubtitleCorrectorWin
 
                         startDate = startDate.AddMilliseconds(milliseconds);
                         endDate = endDate.AddMilliseconds(milliseconds);
+
+                        if (startDate < baseTimestamp)
+                            startDate = baseTimestamp;
+                        if (endDate < baseTimestamp)
+                            endDate = baseTimestamp;
 
                         correctedLine = startDate.ToString(format) + " --> " + endDate.ToString(format);
 
