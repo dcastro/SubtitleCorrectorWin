@@ -64,6 +64,10 @@ namespace SubtitleCorrectorWin
                     correctedLines.Add(correctedLine);
                 }
 
+                saveToFile(correctedLines);
+
+                Console.Write("Done");
+
             });
         }
 
@@ -105,7 +109,7 @@ namespace SubtitleCorrectorWin
             List<String> lines = new List<string>();
             try
             {
-                using (StreamReader sr = new StreamReader(filename))
+                using (StreamReader sr = new StreamReader(filename, Encoding.Default))
                 {
                     while (!sr.EndOfStream)
                     {
@@ -113,7 +117,6 @@ namespace SubtitleCorrectorWin
                         lines.Add(line);
                     }
                 }
-                Console.Write("# lines" + lines.Count());
             }
             catch (Exception e)
             {
@@ -122,6 +125,28 @@ namespace SubtitleCorrectorWin
             }
 
             return lines;
+        }
+
+        private void saveToFile(List<string> correctedLines)
+        {
+            //make a backup
+            File.Copy(filename, filename + ".baq");
+
+            try
+            {
+                using (StreamWriter wr = new StreamWriter(filename))
+                {
+                    foreach (String correctedLine in correctedLines)
+                    {
+                        wr.WriteLine(correctedLine);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("The file could not be written:");
+                Console.WriteLine(e.Message);
+            }
         }
 
     }
