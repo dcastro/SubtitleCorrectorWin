@@ -32,8 +32,7 @@ namespace SubtitleCorrectorWin
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                filenameTextBox.Text = openFileDialog.FileName;
-                this.filename = openFileDialog.FileName;
+                setFilename(openFileDialog.FileName);
             }
         }
 
@@ -71,6 +70,29 @@ namespace SubtitleCorrectorWin
             {
                 move = MoveAction.Backward;
             }
+        }
+
+        private void Form1_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                e.Effect = DragDropEffects.Move;
+            else
+                e.Effect = DragDropEffects.None;
+        }
+
+        private void Form1_DragDrop(object sender, DragEventArgs e)
+        {
+            Array data = (Array)e.Data.GetData(DataFormats.FileDrop);
+            if( data != null )
+            {
+                setFilename(data.GetValue(0).ToString());
+            }
+        }
+
+        private void setFilename(string filename)
+        {
+            filenameTextBox.Text = filename;
+            this.filename = filename;
         }
 
     }

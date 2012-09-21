@@ -159,6 +159,7 @@
             // 
             // Form1
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(476, 282);
@@ -173,6 +174,8 @@
             this.Name = "Form1";
             this.Text = "Subtitle Corrector";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);
             ((System.ComponentModel.ISupportInitialize)(this.secondsInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.millisecondsInput)).EndInit();
             this.groupBox1.ResumeLayout(false);

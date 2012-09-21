@@ -130,11 +130,11 @@ namespace SubtitleCorrectorWin
         private void saveToFile(List<string> correctedLines)
         {
             //make a backup
-            File.Copy(filename, filename + ".baq");
+            File.Copy(filename, filename + ".baq", true);
 
             try
             {
-                using (StreamWriter wr = new StreamWriter(filename))
+                using (StreamWriter wr = new StreamWriter(filename, false, Encoding.Default))
                 {
                     foreach (String correctedLine in correctedLines)
                     {
